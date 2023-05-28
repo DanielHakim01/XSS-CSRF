@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Authentication</title>
+  <link rel="stylesheet" type="text/css" href="style2.css">
+  <script src="../app/script.js"></script>
+</head>
+<body>
+  <h2>Login</h2>
+  <form class="login" action="login.php" method="POST">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required><br><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br><br>
+    
+    <!-- CSRF token -->
+    <!-- <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>"> -->
+    
+    <input type="submit" value="Login">
+    <p>Don't have an account? <a style="color:red;" href="register.php">Register here</a>.</p>
+  </form>
+
+  <script>
+    // Set CSRF token value for all forms
+    var csrfToken = "<?php echo $_SESSION['csrf_token']; ?>";
+    var forms = document.getElementsByTagName("form");
+    for (var i = 0; i < forms.length; i++) {
+      var form = forms[i];
+      var csrfInput = document.createElement("input");
+      csrfInput.type = "hidden";
+      csrfInput.name = "csrf_token";
+      csrfInput.value = csrfToken;
+      form.appendChild(csrfInput);
+    }
+  </script>
+</body>
+</html>
