@@ -1,20 +1,20 @@
 <?php   
 session_start();
 
-// Validate CSRF token
-// function validateCSRFToken($token) {
-//     if (!isset($_SESSION['csrf_token']) || empty($_SESSION['csrf_token']) || $token !== $_SESSION['csrf_token']) {
-//         http_response_code(403);
-//         exit('Invalid CSRF token');
-//     }
-// }
+Validate CSRF token
+function validateCSRFToken($token) {
+    if (!isset($_SESSION['csrf_token']) || empty($_SESSION['csrf_token']) || $token !== $_SESSION['csrf_token']) {
+        http_response_code(403);
+        exit('Invalid CSRF token');
+    }
+}
 
-// // Check if the request method is POST
-// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//     // Validate CSRF token
-//     validateCSRFToken($_POST['csrf_token']);
+// Check if the request method is POST
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Validate CSRF token
+    validateCSRFToken($_POST['csrf_token']);
 
-// check if user has submitted the form
+check if user has submitted the form
 $database_host = 'localhost';
 $database_user = 'root';
 $database_password = '';
