@@ -1,0 +1,14 @@
+RewriteEngine On
+AddType application/x-httpd-php .html
+
+# Redirect requests for the root directory to login.html
+RewriteRule ^$ login.html [L]
+
+DirectoryIndex login.html index.html
+
+
+# Redirect all other requests to the appropriate page
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ page.php?page=$1 [L,QSA]
+
