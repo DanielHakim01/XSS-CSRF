@@ -9,8 +9,8 @@ $database_name = 'studentdatabase';
 // Connect to the database
 $conn = mysqli_connect($database_host, $database_user, $database_password, $database_name);
 
-// require_once 'csrf_token_validation.php';
-// validateCSRFToken($_POST['csrf_token']);
+require_once 'csrf_token_validation.php';
+validateCSRFToken($_POST['csrf_token']);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   // Get the form data
